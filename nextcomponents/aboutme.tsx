@@ -75,26 +75,27 @@ function AboutMe() {
 
   const CameraLogger = () => {
     const { camera } = useThree();
-    const speed = 0.01; // Adjust the rotation speed
-    let theta = 0;
-    const radius = 0.01; // Adjust the radius of the circular path
-    const radiusz = 0.01; // Adjust the radius of the circular path
-    const radiusy = 0.005; // Adjust the radius of the circular path
-
+    const speed = 0.005; // Very slow speed
+    let time = 0;
+    const amplitude = 0.001; // Very minimal distance
   
     useFrame(() => {
-      // Calculate circular path
-      theta += speed;
-      camera.position.x += radius * Math.cos(theta);
-      // camera.position.z += radiusz * Math.sin(theta);
-      // camera.position.y += radiusy * Math.cos(theta);
+      // Increment time slowly
+      time += speed;
+  
+      // Oscillating motion on the y-axis and x-axis
+      camera.position.y += amplitude * Math.sin(time);
+      camera.position.x += amplitude * Math.cos(time);
   
       // Keep the camera facing the original direction
-      camera.lookAt(new Vector3(0, 0, 0)); // Adjust as needed
+      camera.lookAt(new Vector3(0, 0, 0));
     });
   
     return null; // This component does not render anything
   };
+  
+  
+  
 
   // const scrollToSkills = () => {
   //   const skillsSection = document.getElementById('skills');
