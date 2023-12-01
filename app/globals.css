@@ -39,6 +39,10 @@
 {
   opacity: 0;
 }
+.skilltext
+{
+  line-height: normal;
+}
 .button-primary {
   background: linear-gradient(
       180deg,

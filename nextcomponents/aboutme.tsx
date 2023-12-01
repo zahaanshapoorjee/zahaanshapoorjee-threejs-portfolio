@@ -73,27 +73,27 @@ function AboutMe() {
     document.body.appendChild(css);
   }, []);
 
-  const CameraLogger = () => {
-    const { camera } = useThree();
-    const speed = 0.005; // Very slow speed
-    let time = 0;
-    const amplitude = 0.001; // Very minimal distance
-  
-    useFrame(() => {
-      // Increment time slowly
-      time += speed;
-  
-      // Oscillating motion on the y-axis and x-axis
-      camera.position.y += amplitude * Math.sin(time);
-      camera.position.x += amplitude * Math.cos(time);
-  
-      // Keep the camera facing the original direction
-      camera.lookAt(new Vector3(0, 0, 0));
-    });
-  
-    return null; // This component does not render anything
-  };
-  
+const CameraLogger = () => {
+  const { camera } = useThree();
+  const speed = 0.01; // Very slow speed
+  let time = 0;
+  const amplitude = 0.0025; // Very minimal distance
+
+  useFrame(() => {
+    // Increment time slowly
+    time += speed;
+
+    // Oscillating motion on the y-axis and x-axis
+    camera.position.y += amplitude * Math.sin(time);
+    camera.position.x += amplitude * Math.cos(time);
+
+    // Keep the camera facing the original direction
+    camera.lookAt(new Vector3(0, 0, 0));
+  });
+
+  return null; // This component does not render anything
+};
+
   
   
 
@@ -150,7 +150,7 @@ function AboutMe() {
           <h1 className='text-white text-[13px]'>Athlete / Developer / Pianist</h1>
         </motion.div>
         <div  className='flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto'>
-          <span className='text-transparent bg-clip-text bg-gradient-to-r from-gold3 via-gold1 to-gold2 typewriter-text' data-type='["Zahaan Shapoorjee", "Footballer", "Developer", "Pianist"]' data-period="2000"></span>
+          <span className='text-transparent bg-clip-text bg-gradient-to-r from-gold3 via-gold1 to-gold2 typewriter-text' data-type='["Zahaan Shapoorjee", "Footballer", "Developer"]' data-period="2000"></span>
         </div>
         <motion.p
         variants={slideLeft(0.8)} className='text-lg text-white my-5 max-w-[600px]'>
