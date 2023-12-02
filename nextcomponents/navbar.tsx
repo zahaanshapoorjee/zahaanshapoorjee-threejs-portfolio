@@ -23,16 +23,16 @@ const Navbar = () => {
   };
   
 
-  const smoothScroll = (elementId, duration) => {
+  const smoothScroll = (elementId: string, duration: number) => {
     const targetElement = document.getElementById(elementId);
     if (!targetElement) return;
   
     const targetPosition = targetElement.getBoundingClientRect().top;
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
-    let startTime = null;
+    let startTime: number | null = null;
   
-    const animation = currentTime => {
+    const animation = (currentTime: number) => {
       if (startTime === null) startTime = currentTime;
       const timeElapsed = currentTime - startTime;
       const run = ease(timeElapsed, startPosition, distance, duration);
@@ -40,7 +40,7 @@ const Navbar = () => {
       if (timeElapsed < duration) requestAnimationFrame(animation);
     };
   
-    const ease = (t, b, c, d) => {
+    const ease = (t: number, b: number, c: number, d: number) => {
       t /= d / 2;
       if (t < 1) return c / 2 * t * t + b;
       t--;
