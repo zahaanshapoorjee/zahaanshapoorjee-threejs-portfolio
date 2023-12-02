@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, RefObject } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
 
@@ -107,27 +107,30 @@ const Skills = () => {
 
       const itemVariants = {
         initial: { opacity: 0, y: 20 },
-        visible: i => ({
+        visible: (i: number) => ({
           opacity: 1,
           y: 0,
           transition: { delay: i * 0.1 }
         }),
         hover: { scale: 1.5 }
       };
-
       
-  const controls = Skill_data.map(() => useAnimation());
-  const refs = Skill_data.map(() => useRef(null));
+
+    const controls = Skill_data.map(() => useAnimation());
+    const refs: RefObject<HTMLDivElement>[] = Skill_data.map(() => useRef<HTMLDivElement>(null));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const index = entry.target.getAttribute('data-index');
-          if (entry.isIntersecting) {
-            controls[index].start('visible');
-          } else {
-            controls[index].start('initial');
+          const dataIndex = entry.target.getAttribute('data-index');
+          if (dataIndex !== null) {
+            const numericIndex = parseInt(dataIndex, 10);
+            if (entry.isIntersecting) {
+              controls[numericIndex].start('visible');
+            } else {
+              controls[numericIndex].start('initial');
+            }
           }
         });
       },
@@ -137,14 +140,14 @@ const Skills = () => {
         threshold: 0.1
       }
     );
-
+  
     refs.forEach((ref, index) => {
       if (ref.current) {
-        ref.current.setAttribute('data-index', index);
+        ref.current.setAttribute('data-index', index.toString());
         observer.observe(ref.current);
       }
     });
-
+  
     return () => {
       refs.forEach((ref) => {
         if (ref.current) {
@@ -152,7 +155,8 @@ const Skills = () => {
         }
       });
     };
-  }, []);
+  }, [controls, refs]);
+  
 
   const imageVariants = {
     hover: { scale: 1.5 } // Adjust the scale value as needed

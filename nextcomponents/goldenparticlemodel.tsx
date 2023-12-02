@@ -61,7 +61,7 @@ const Particles = () => {
           transparent={true} 
           blending={THREE.AdditiveBlending}
           depthWrite={depthWrite} // Add depth write
-          emissiveIntensity={0.5} /> 
+ /> 
       </points>
     );
 };
