@@ -15,54 +15,60 @@ import { Vector3 } from 'three';
 
 function AboutMe() {
   useEffect(() => {
-    var TxtType = function(el, toRotate, period) {
-      this.toRotate = toRotate;
-      this.el = el;
-      this.loopNum = 0;
-      this.period = parseInt(period, 10) || 2000;
-      this.txt = '';
-      this.tick();
-      this.isDeleting = false;
-    };
-
-
-  
-
-    TxtType.prototype.tick = function() {
-      var i = this.loopNum % this.toRotate.length;
-      var fullTxt = this.toRotate[i];
+    class TxtType {
+      toRotate: string[];
+      el: HTMLElement;
+      loopNum: number;
+      period: number;
+      txt: string;
+      isDeleting: boolean;
     
-      if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-      } else {
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
-      }
-    
-      this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
-    
-      var that = this;
-      var delta = this.isDeleting ? 50 : 200; // Adjust the values for smoother experience
-    
-      if (this.isDeleting && this.txt === '') {
+      constructor(el: HTMLElement, toRotate: string[], periodAttr: string | null) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(periodAttr ?? '2000', 10); // Use '2000' if periodAttr is null
+        this.txt = '';
         this.isDeleting = false;
-        this.loopNum++;
-        delta = 500;
-      } else if (!this.isDeleting && this.txt === fullTxt) {
-        this.isDeleting = true;
-        delta = this.period;
+        this.tick();
       }
     
-      setTimeout(function() {
-        that.tick();
-      }, delta);
-    };
+      tick() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+    
+        if (this.isDeleting) {
+          this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+          this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+    
+        this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+    
+        var that = this;
+        var delta = this.isDeleting ? 50 : 200; // Adjust the values for smoother experience
+    
+        if (this.isDeleting && this.txt === '') {
+          this.isDeleting = false;
+          this.loopNum++;
+          delta = 500;
+        } else if (!this.isDeleting && this.txt === fullTxt) {
+          this.isDeleting = true;
+          delta = this.period;
+        }
+    
+        setTimeout(() => {
+          that.tick();
+        }, delta);
+      }
+    }
     
     var elements = document.getElementsByClassName('typewriter-text');
     for (var i = 0; i < elements.length; i++) {
       var toRotate = elements[i].getAttribute('data-type');
       var period = elements[i].getAttribute('data-period');
-      if (toRotate) {
-        new TxtType(elements[i], JSON.parse(toRotate), period);
+      if (toRotate && elements[i] instanceof HTMLElement) {
+        new TxtType(elements[i] as HTMLElement, JSON.parse(toRotate), period);
       }
     }
 
@@ -109,16 +115,16 @@ const CameraLogger = () => {
   };
   
 
-  const smoothScroll = (elementId, duration) => {
+  const smoothScroll = (elementId: string, duration: number) => {
     const targetElement = document.getElementById(elementId);
     if (!targetElement) return;
   
     const targetPosition = targetElement.getBoundingClientRect().top;
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
-    let startTime = null;
+    let startTime: number | null = null;
   
-    const animation = currentTime => {
+    const animation = (currentTime: number) => {
       if (startTime === null) startTime = currentTime;
       const timeElapsed = currentTime - startTime;
       const run = ease(timeElapsed, startPosition, distance, duration);
@@ -126,7 +132,7 @@ const CameraLogger = () => {
       if (timeElapsed < duration) requestAnimationFrame(animation);
     };
   
-    const ease = (t, b, c, d) => {
+    const ease = (t: number, b: number, c: number, d: number) => {
       t /= d / 2;
       if (t < 1) return c / 2 * t * t + b;
       t--;
@@ -135,6 +141,7 @@ const CameraLogger = () => {
   
     requestAnimationFrame(animation);
   };
+  
   
   
   return (
