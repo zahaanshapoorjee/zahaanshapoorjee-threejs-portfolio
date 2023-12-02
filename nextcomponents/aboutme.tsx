@@ -168,7 +168,7 @@ const CameraLogger = () => {
           height={650}
           width={650}
         /> */}
-        <div className='w-full h-full flex justify-center items-center rotate-180'>
+        <div className='w-full h-full flex justify-center items-center rotate-180 aboutme'>
           <div style={{ width: '700px', height: '750px', position: 'relative' }}>
             <Canvas id="aboutme" camera={{position: [-20, 0, -15]}}>
               <Suspense fallback={null}>

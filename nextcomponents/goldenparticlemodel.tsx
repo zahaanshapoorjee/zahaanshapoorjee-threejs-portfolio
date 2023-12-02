@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import { useLoader, useFrame } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import * as THREE from 'three';
@@ -30,11 +30,20 @@ const Particles = () => {
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
 
+    const [depthWrite, setDepthWrite] = useState(true);
+    let toggleTime = 0;
+  
     // Particle animation
     const particleRef = useRef();
-    useFrame(() => {
-      // particleRef.current.rotation.y += 0.001;
+    useFrame((state, delta) => {
+      toggleTime += delta;
+      if (toggleTime > 0.008) { // Toggle every 2 seconds
+        setDepthWrite(!depthWrite);
+        toggleTime = 0;
+      }
     });
+
+    
 
     return (
       <points ref={particleRef}>
@@ -43,12 +52,13 @@ const Particles = () => {
           map={texture} 
           attach="material" 
           color="#afafaf" 
-          size={0.8} 
+          size={0.8}  // Increased size
           sizeAttenuation={true} 
           transparent={true} 
           blending={THREE.AdditiveBlending}
-          emissive="#ffd700" 
-          emissiveIntensity={0.5} />
+          depthWrite={depthWrite} // Add depth write
+          emissive="#ffffff" 
+          emissiveIntensity={0.5} /> 
       </points>
     );
 };
@@ -58,6 +68,7 @@ const GoldenParticleModel = () => {
     <>
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} color="#ffffff" intensity={1.5} />
+      <spotLight position={[-10, 15, 10]} angle={0.3} intensity={1.5} /> // Additional spotlight
       <group position={[65, 25, -5]}>
         <Particles />
       </group>
