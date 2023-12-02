@@ -148,19 +148,19 @@ const CameraLogger = () => {
     <motion.div
   initial="hidden"
   animate="visible"
-  className="flex flex-col md:flex-row items-center justify-center px-20 mt-15 w-full z-[20] h-full"
+  className="flex flex-col md:flex-row items-center justify-center px-20 mt-15 w-full z-[20] h-full "
 >
       <div className='h-full w-full flex flex-col gap-5 justify center m-auto text-start'>
-        <motion.div id="" className='Welcome-box py-[15px] px-[4px] border border-[#D4AF37] opacity-[0.9] align-center px-6'
+        <motion.div id="" className='hidden md:Welcome-box py-[15px] px-[4px] border border-[#D4AF37] opacity-[0.9] align-center px-6'
         variants={slideTop}>
           <BoltIcon className='text-[#D4AF37] mr-[10px] h-5 w-5'/>
           <h1 className='text-white text-[13px]'>Athlete / Developer / Pianist</h1>
         </motion.div>
-        <div  className='flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto'>
-          <span className='text-transparent bg-clip-text bg-gradient-to-r from-gold3 via-gold1 to-gold2 typewriter-text gold-gradient-text' data-type='["Zahaan Shapoorjee", "Footballer", "Developer"]' data-period="3000"></span>
+        <div  className='mt-20 md:flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto'>
+        <span className='text-4xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-gold3 via-gold1 to-gold2 typewriter-text gold-gradient-text' data-type='["Zahaan", "Footballer", "Developer"]' data-period="3000"></span>
         </div>
         <motion.p
-        variants={slideLeft(0.8)} className='text-lg text-white my-5 max-w-[600px]'>
+        variants={slideLeft(0.8)} className='text-xl md:text-lg text-white my-5 max-w-[600px]'>
           Hi! I'm Zahaan, a footballer, developer, and pianist. My interests include Cyber-Security, Piano, and Full-Stack Development.
         </motion.p>
         <motion.a onClick={scrollToSkills} variants={slideLeft(1)} className='py-2 border border-[#D4AF37] opacity-[0.9]  text-center text-white cursor-pointer rounded-lg max-w-[200px]'>
@@ -175,7 +175,7 @@ const CameraLogger = () => {
           height={650}
           width={650}
         /> */}
-        <div className='w-full h-full flex justify-center items-center rotate-180 aboutme'>
+        <div className='w-half md:w-full h-full flex justify-center items-center rotate-180 aboutme'>
           <div style={{ width: '700px', height: '750px', position: 'relative' }}>
             <Canvas id="aboutme" camera={{position: [-20, 0, -15]}}>
               <Suspense fallback={null}>
