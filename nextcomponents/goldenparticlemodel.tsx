@@ -4,28 +4,30 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import * as THREE from 'three';
 
 const Particles = () => {
-    const gltf = useLoader(GLTFLoader, '/footballer2.glb');
-    const texture = useLoader(THREE.TextureLoader, '/particle-texture.jpg'); 
-    const vertices = useMemo(() => {
-      let points = [];
-      gltf.scene.traverse((child) => {
-        if (child.isMesh && child.geometry) {
-          const mesh = child;
-          const geometry = mesh.geometry;
-          geometry.computeVertexNormals();
-  
-          if (geometry.isBufferGeometry) {
-            const positions = geometry.attributes.position.array;
-            for (let i = 0; i < positions.length; i += 36) { // Adjust as needed
-              // Push each component of the vertex separately
-              points.push(positions[i], positions[i + 1], positions[i + 2]);
-            }
+  const gltf = useLoader(GLTFLoader, '/footballer2.glb');
+  const texture = useLoader(THREE.TextureLoader, '/particle-texture.jpg'); 
+
+  // Explicitly type 'points' as 'number[]'
+  const vertices = useMemo(() => {
+    let points: number[] = [];
+    gltf.scene.traverse((child) => {
+      if (child instanceof THREE.Mesh && child.geometry) {
+        // Now 'child' is typed as 'THREE.Mesh', which has 'geometry'
+        const mesh = child;
+        const geometry = mesh.geometry;
+        geometry.computeVertexNormals();
+
+        if (geometry.isBufferGeometry) {
+          const positions = geometry.attributes.position.array;
+          for (let i = 0; i < positions.length; i += 36) {
+            points.push(positions[i], positions[i + 1], positions[i + 2]);
           }
         }
-      });
-      
-      return new Float32Array(points);
-    }, [gltf]);
+      }
+    });
+
+    return new Float32Array(points);
+  }, [gltf]);
   
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
@@ -36,7 +38,7 @@ const Particles = () => {
     
   
     // Particle animation
-    const particleRef = useRef();
+    const particleRef = useRef<THREE.Points>(null);
     useFrame((state, delta) => {
       toggleTime += delta;
       if (toggleTime > 0.008) { // Toggle every 2 seconds
@@ -59,7 +61,6 @@ const Particles = () => {
           transparent={true} 
           blending={THREE.AdditiveBlending}
           depthWrite={depthWrite} // Add depth write
-          emissive="#ffffff" 
           emissiveIntensity={0.5} /> 
       </points>
     );
