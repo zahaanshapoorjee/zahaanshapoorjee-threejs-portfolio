@@ -52,6 +52,22 @@
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
 }
+.canvas-container {
+  width: 700px;
+  height: 750px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .canvas-container {
+    width: 300px;  /* Adjust as needed for mobile */
+    height: 350px; /* Adjust as needed for mobile */
+  }
+  .Welcome-box{
+    display: none;
+  }
+}
+
 
 .gold-gradient-text {
   background: linear-gradient(to right, #b88a44, #e0aa3e , #f9f295, #f9f295,#e0aa3e, #b88a44);
