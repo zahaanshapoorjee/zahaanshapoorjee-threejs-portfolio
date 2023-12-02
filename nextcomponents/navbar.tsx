@@ -67,7 +67,7 @@ const Navbar = () => {
 
           <span className="font-bold ml-[10px] hidden md:block gold-gradient-text"
            >
-            Zahaan Shapoorjee
+            Zahaan S
           </span>
         </a>
 

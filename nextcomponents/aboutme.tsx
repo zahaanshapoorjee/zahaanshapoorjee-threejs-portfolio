@@ -141,7 +141,7 @@ const CameraLogger = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-row items-center justify-center px-20 mt-16 w-full z-[20] h-full"
+      className="flex flex-row items-center justify-center px-20 mt-15 w-full z-[20] h-full"
     >
       <div className='h-full w-full flex flex-col gap-5 justify center m-auto text-start'>
         <motion.div id="" className='Welcome-box py-[15px] px-[4px] border border-[#D4AF37] opacity-[0.9] align-center px-6'

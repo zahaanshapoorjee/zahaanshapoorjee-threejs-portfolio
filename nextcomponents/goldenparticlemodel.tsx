@@ -32,6 +32,8 @@ const Particles = () => {
 
     const [depthWrite, setDepthWrite] = useState(true);
     let toggleTime = 0;
+
+    
   
     // Particle animation
     const particleRef = useRef();
