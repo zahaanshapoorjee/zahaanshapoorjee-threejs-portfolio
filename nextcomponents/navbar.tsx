@@ -65,7 +65,8 @@ const Navbar = () => {
             className="cursor-pointer hover:animate-slowspin invisible-items"
           />
 
-          <span className="font-bold ml-[10px] hidden md:block text-gray-300">
+          <span className="font-bold ml-[10px] hidden md:block gold-gradient-text"
+           >
             Zahaan Shapoorjee
           </span>
         </a>

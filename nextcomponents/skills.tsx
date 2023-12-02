@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
 
@@ -112,7 +112,7 @@ const Skills = () => {
           y: 0,
           transition: { delay: i * 0.1 }
         }),
-        hover: { scale: 1.05 }
+        hover: { scale: 1.5 }
       };
 
       
@@ -154,9 +154,27 @@ const Skills = () => {
     };
   }, []);
 
+  const imageVariants = {
+    hover: { scale: 1.5 } // Adjust the scale value as needed
+  };  
+
   return (
-    <div className="grid grid-cols-4 gap-5 gap-y-10 mb-6 w-4/5 justify-center items-center rounded-3xl border-gray-300 pt-10 pb-10">
-      {Skill_data.map((image, index) => (
+    <div className="grid grid-cols-4 gap-5 gap-y-10 mb-6 w-4/5 justify-center items-center rounded-3xl border-white pt-10 pb-10 border">
+      {Skill_data.map((image, index) =>{
+      // State to track hover
+      const [isHovered, setIsHovered] = useState(false);
+
+      // Inline styles for the image
+      const imageStyle = isHovered ? {
+        transform: 'scale(1.5)',
+        transition: 'transform 0.3s ease',
+        filter: 'brightness(1.2) saturate(1.5)',
+        boxShadow: '0 0 15px rgba(255, 215, 0, 0.6)'
+      } : {
+        transition: 'transform 0.3s ease'
+      };
+      
+      return (
         <motion.div
           ref={refs[index]}
           key={index}
@@ -166,19 +184,25 @@ const Skills = () => {
           initial="initial"
           animate={controls[index]}
           custom={index}
-          whileHover="hover"
         >
-           <Image
-                src={image.Image}
-                width={image.width-15}
-                height={image.height-15}
-                alt='skill image'
-              />
-              <h1 className='text-transparent bg-clip-text bg-gradient-to-r from-gold3 via-gold1 to-gold2 font-bold'>
-                {image.skill_name}
-              </h1>
-            </motion.div>
-      ))}
+          <div
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            style={imageStyle}
+          >
+            <Image
+              src={image.Image}
+              width={image.width-15}
+              height={image.height-15}
+              alt='skill image'
+            />
+          </div>
+          <h1 className='text-transparent bg-clip-text gold-gradient-text font-bold'>
+            {image.skill_name}
+          </h1>
+        </motion.div>
+)})}
+
     </div>
   );
 };

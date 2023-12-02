@@ -39,6 +39,30 @@
 {
   opacity: 0;
 }
+
+.image-glow {
+  transition: filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-glow:hover {
+  filter: brightness(1.2) saturate(1.5);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Adjust color and size as needed */
+}
+@keyframes moveGradient {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.gold-gradient-text {
+  background: linear-gradient(to right, #b88a44, #e0aa3e , #f9f295, #f9f295,#e0aa3e, #b88a44);
+  background-size: 400% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: moveGradient 6s linear infinite;
+}
+
+
 .skilltext
 {
   line-height: normal;
