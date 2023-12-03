@@ -148,9 +148,9 @@ const CameraLogger = () => {
     <motion.div
   initial="hidden"
   animate="visible"
-  className="brotherman flex flex-col md:flex-row mt-20 items-center justify-center px-20 w-full z-[20] h-full "
+  className="flex flex-col md:flex-row mt-20 items-center justify-center px-0 md:px-20 w-full z-[20] h-full "
 >
-      <div className='mb-20 md:h-full w-full flex flex-col gap-5 justify center m-auto mt-0 text-start'>
+      <div className='md:mb-20 md:h-full w-full flex flex-col gap-5 justify center m-auto mt-0 text-start px-20'>
         <motion.div className='Welcome-box py-[15px] px-[4px] border border-[#D4AF37] opacity-[0.9] align-center px-6'
         variants={slideTop}>
           <BoltIcon className='text-[#D4AF37] mr-[10px] h-5 w-5'/>

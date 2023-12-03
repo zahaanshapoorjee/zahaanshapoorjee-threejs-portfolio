@@ -9,7 +9,7 @@ function Blackholeanimation() {
   autoPlay
   muted
   loop
-  className='rotate-180 absolute top-[-380px] left-0 z-[1] md:w-full h-full object-cover filtered-video'
+  className='rotate-180 absolute top-[-380px] left-0 z-[1] md:w-full md:h-full object-cover filtered-video'
 >
   <source src='/blackhole.webm' type='video/webm'></source>
 </video>

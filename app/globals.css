@@ -60,8 +60,8 @@
 
 @media (max-width: 768px) {
   .canvas-container {
-    width: 300px;  /* Adjust as needed for mobile */
-    height: 350px; /* Adjust as needed for mobile */
+    width: 100%;  /* Adjust as needed for mobile */
+    height: 470px; /* Adjust as needed for mobile */
   }
   .Welcome-box{
     display: none;
