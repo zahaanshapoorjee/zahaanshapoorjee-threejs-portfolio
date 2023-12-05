@@ -3,8 +3,25 @@
 import React, { useEffect, useRef, useState, RefObject } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
+import { useLoader, useFrame, Canvas } from '@react-three/fiber';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from 'three';
 
 const Skills = () => {
+
+  
+  const CppModel = () => {
+    const gltf = useLoader(GLTFLoader, '/cpp2.glb');
+    const modelRef = useRef();
+  
+    useFrame(() => {
+    });
+
+    return (
+      <primitive object={gltf.scene} scale={1} ref={modelRef} /> // Adjust scale as needed, start with 1 for testing
+    );
+  };
+  
 
     const Skill_data = [
       {
@@ -119,43 +136,43 @@ const Skills = () => {
     const controls = Skill_data.map(() => useAnimation());
     const refs: RefObject<HTMLDivElement>[] = Skill_data.map(() => useRef<HTMLDivElement>(null));
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const dataIndex = entry.target.getAttribute('data-index');
-          if (dataIndex !== null) {
-            const numericIndex = parseInt(dataIndex, 10);
-            if (entry.isIntersecting) {
-              controls[numericIndex].start('visible');
-            } else {
-              controls[numericIndex].start('initial');
-            }
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-      }
-    );
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         const dataIndex = entry.target.getAttribute('data-index');
+  //         if (dataIndex !== null) {
+  //           const numericIndex = parseInt(dataIndex, 10);
+  //           if (entry.isIntersecting) {
+  //             controls[numericIndex].start('visible');
+  //           } else {
+  //             controls[numericIndex].start('initial');
+  //           }
+  //         }
+  //       });
+  //     },
+  //     {
+  //       root: null,
+  //       rootMargin: '0px',
+  //       threshold: 0.1
+  //     }
+  //   );
   
-    refs.forEach((ref, index) => {
-      if (ref.current) {
-        ref.current.setAttribute('data-index', index.toString());
-        observer.observe(ref.current);
-      }
-    });
+  //   refs.forEach((ref, index) => {
+  //     if (ref.current) {
+  //       ref.current.setAttribute('data-index', index.toString());
+  //       observer.observe(ref.current);
+  //     }
+  //   });
   
-    return () => {
-      refs.forEach((ref) => {
-        if (ref.current) {
-          observer.unobserve(ref.current);
-        }
-      });
-    };
-  }, [controls, refs]);
+  //   return () => {
+  //     refs.forEach((ref) => {
+  //       if (ref.current) {
+  //         observer.unobserve(ref.current);
+  //       }
+  //     });
+  //   };
+  // }, [controls, refs]);
   
 
   const imageVariants = {
@@ -164,7 +181,7 @@ const Skills = () => {
 
   return (
     <div className="grid grid-cols-4 gap-5 gap-y-10 mb-6 w-4/5 justify-center items-center rounded-3xl border-white pt-10 pb-10 border">
-      {Skill_data.map((image, index) =>{
+      {/* {Skill_data.map((image, index) =>{
       // State to track hover
       const [isHovered, setIsHovered] = useState(false);
 
@@ -205,7 +222,15 @@ const Skills = () => {
             {image.skill_name}
           </h1>
         </motion.div>
-)})}
+)})} */}
+
+          <div className='h-full w-full flex flex-row items-center justify-center'>
+        <Canvas camera={{position: [4, 0, 0]}} style={{width:150, height:150}}>
+          <ambientLight intensity={1.5} />
+          <directionalLight position={[0, 0, 5]} />
+          <CppModel />
+        </Canvas>
+        </div>
 
     </div>
   );

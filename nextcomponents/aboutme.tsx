@@ -148,7 +148,7 @@ const CameraLogger = () => {
     <motion.div
   initial="hidden"
   animate="visible"
-  className="flex flex-col md:flex-row mt-20 items-center justify-center px-0 md:px-20 w-full z-[20] h-full "
+  className="flex flex-col md:flex-row mt-20 items-center justify-center px-0 md:px-20 md:pr-0 w-full z-[20] h-full "
 >
       <div className='md:mb-20 md:h-full w-full flex flex-col gap-5 justify center m-auto mt-0 text-start px-20'>
         <motion.div className='Welcome-box py-[15px] px-[4px] border border-[#D4AF37] opacity-[0.9] align-center px-6'
@@ -167,7 +167,7 @@ const CameraLogger = () => {
             Check out my skills!
         </motion.a>
       </div>
-        <div className='w-full h-full mt-10 md:w-full h-full flex justify-center items-center rotate-180 aboutme'>
+        <div className='w-full h-full mt-10 md:w-full h-full flex justify-center items-center rotate-180 aboutme '>
           <div className="canvas-container">
             <Canvas id="aboutme" camera={{position: [-20, 0, -15]}}>
               <Suspense fallback={null}>
