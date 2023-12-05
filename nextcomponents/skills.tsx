@@ -6,19 +6,23 @@ import Image from 'next/image';
 import { useLoader, useFrame, Canvas } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import * as THREE from 'three';
+import { Group } from 'three';
 
 const Skills = () => {
 
-  
   const CppModel = () => {
     const gltf = useLoader(GLTFLoader, '/cpp2.glb');
-    const modelRef = useRef();
+    const modelRef = useRef<Group>(null); // Explicitly type the ref as Group
   
     useFrame(() => {
+      if (modelRef.current) {
+        modelRef.current.rotation.y += 0.01;
+        // Add other rotation lines if needed
+      }
     });
-
+  
     return (
-      <primitive object={gltf.scene} scale={1} ref={modelRef} /> // Adjust scale as needed, start with 1 for testing
+      <primitive object={gltf.scene} scale={1} ref={modelRef} />
     );
   };
   
