@@ -39,6 +39,11 @@ const PHPModel = () =>{
   return <primitive object={gltf.scene} scale={1}/>
 }
 
+const NodeJSModel = () =>{
+  const gltf =  useLoader(GLTFLoader, '/nodejs.glb');
+  return <primitive object={gltf.scene} scale={1}/>
+}
+
 
 const CameraOrbit = () => {
   const { camera } = useThree();
@@ -109,6 +114,14 @@ const Skills = () => {
           <directionalLight position={[0, 0, 5]} />
           <CameraOrbit />
           <PHPModel />
+        </Canvas>
+      </div>
+      <div className='h-full w-full flex flex-row items-center justify-center'>
+        <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 150, height: 150 }}>
+          <ambientLight intensity={4.5} />
+          <directionalLight position={[0, 0, 5]} />
+          <CameraOrbit />
+          <NodeJSModel />
         </Canvas>
       </div>
     </div>
