@@ -53,6 +53,10 @@ const AWSModel = () =>{
   const gltf =  useLoader(GLTFLoader, '/aws.glb');
   return <primitive object={gltf.scene} scale={1}/>
 }
+const UEModel = () =>{
+  const gltf =  useLoader(GLTFLoader, '/UE.glb');
+  return <primitive object={gltf.scene} scale={1}/>
+}
 
 
 
@@ -149,6 +153,14 @@ const Skills = () => {
           <directionalLight position={[0, 0, 5]} />
           <CameraOrbit />
           <AWSModel />
+        </Canvas>
+      </div>
+      <div className='h-half w-half md:h-full md:w-full flex flex-row items-center justify-center'>
+        <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 150, height: 150 }}>
+          <ambientLight intensity={4.5} />
+          <directionalLight position={[0, 0, 5]} />
+          <CameraOrbit />
+          <UEModel />
         </Canvas>
       </div>
     </div>
