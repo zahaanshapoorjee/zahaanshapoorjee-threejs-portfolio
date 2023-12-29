@@ -58,6 +58,12 @@ const UEModel = () =>{
   return <primitive object={gltf.scene} scale={1}/>
 }
 
+const LinuxModel = () =>{
+  const gltf =  useLoader(GLTFLoader, '/Linux.glb');
+  return <primitive object={gltf.scene} scale={1}/>
+}
+
+
 
 
 const CameraOrbit = () => {
@@ -65,8 +71,8 @@ const CameraOrbit = () => {
   useFrame(({ clock }) => {
     const elapsed = clock.getElapsedTime();
     const radius = 5; // Radius of the camera's circular path
-    camera.position.x = Math.sin(elapsed*1.25) * radius;
-    camera.position.z = Math.cos(elapsed*1.25) * radius;
+    camera.position.x = Math.sin(elapsed*1.1) * radius;
+    camera.position.z = Math.cos(elapsed*1.1) * radius;
     camera.lookAt(0, 0, 0); // Make the camera look at the center of the scene (or the object)
   });
   return null;
@@ -161,6 +167,14 @@ const Skills = () => {
           <directionalLight position={[0, 0, 5]} />
           <CameraOrbit />
           <UEModel />
+        </Canvas>
+      </div>
+      <div className='h-half w-half md:h-full md:w-full flex flex-row items-center justify-center'>
+        <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 150, height: 150 }}>
+          <ambientLight intensity={4.5} />
+          <directionalLight position={[0, 0, 5]} />
+          <CameraOrbit />
+          <LinuxModel />
         </Canvas>
       </div>
     </div>
