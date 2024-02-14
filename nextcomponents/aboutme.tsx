@@ -83,7 +83,7 @@ const CameraLogger = () => {
   const { camera } = useThree();
   const speed = 0.025; // Very slow speed
   let time = 0;
-  const amplitude = 0.0025; // Very minimal distance
+  const amplitude = 0.015; // Very minimal distance
 
   useFrame(() => {
     // Increment time slowly
