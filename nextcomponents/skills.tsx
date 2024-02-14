@@ -72,8 +72,8 @@ const CameraOrbit = () => {
   useFrame(({ clock }) => {
     const elapsed = clock.getElapsedTime();
     const radius = 5; // Radius of the camera's circular path
-    camera.position.x = Math.sin(elapsed*1.1) * radius;
-    camera.position.z = Math.cos(elapsed*1.1) * radius;
+    camera.position.x = Math.sin(elapsed*0.5) * radius;
+    camera.position.z = Math.cos(elapsed*0.5) * radius;
     camera.lookAt(0, 0, 0); // Make the camera look at the center of the scene (or the object)
   });
   return null;
@@ -82,8 +82,8 @@ const CameraOrbit = () => {
 const Skills = () => {
   return (
     <>
-    <div className="desktop md:grid md:grid-cols-4 md:gap-5 md:gap-y-5 md:gap-y-10 md:mb-6 mdw-4/5 justify-center items-center rounded-3xl md:border-white md:pt-10 md:pb-10 md:border">
-      <div className='h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
+    <div className="desktop md:grid md:grid-cols-4 md:gap-5 md:gap-y-5 md:gap-y-10 md:mb-6 sm:w-4/5 justify-center items-center rounded-3xl md:border-white md:pt-10 md:pb-10 md:border">
+      <div className='aanimate-pulse h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 150, height: 150 }}>
           <ambientLight intensity={1.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -91,7 +91,7 @@ const Skills = () => {
           <CppModel />
         </Canvas>
       </div>
-      <div className='h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
+      <div className='aanimate-pulse h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 150, height: 150 }}>
           <ambientLight intensity={1.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -99,7 +99,7 @@ const Skills = () => {
           <JSModel />
         </Canvas>
       </div>
-      <div className='h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
+      <div className='aanimate-pulse h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 150, height: 150 }}>
           <ambientLight intensity={1.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -107,7 +107,7 @@ const Skills = () => {
           <PythonModel />
         </Canvas>
       </div>
-      <div className='h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
+      <div className='aanimate-pulse h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 150, height: 150 }}>
           <ambientLight intensity={7.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -115,7 +115,7 @@ const Skills = () => {
           <ReactModel />
         </Canvas>
       </div>
-      <div className='h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
+      <div className='aanimate-pulse h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
         <Canvas camera={{ position: [14, 0, 0] }} style={{ width: 150, height: 150 }}>
           <ambientLight intensity={4.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -123,7 +123,7 @@ const Skills = () => {
           <MongoDBModel />
         </Canvas>
       </div>
-      <div className='h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
+      <div className='animate-pulse h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 150, height: 150 }}>
           <ambientLight intensity={4.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -131,7 +131,7 @@ const Skills = () => {
           <SQLModel />
         </Canvas>
       </div>
-      <div className='h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
+      <div className='animate-pulse h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 150, height: 150 }}>
           <ambientLight intensity={4.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -139,7 +139,7 @@ const Skills = () => {
           <PHPModel />
         </Canvas>
       </div>
-      <div className='h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
+      <div className='animate-pulse h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 150, height: 150 }}>
           <ambientLight intensity={4.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -147,7 +147,7 @@ const Skills = () => {
           <NodeJSModel />
         </Canvas>
       </div>
-      <div className='h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
+      <div className='animate-pulse h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 150, height: 150 }}>
           <ambientLight intensity={4.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -155,7 +155,7 @@ const Skills = () => {
           <TailWindModel />
         </Canvas>
       </div>
-      <div className='h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
+      <div className='animate-pulse h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 150, height: 150 }}>
           <ambientLight intensity={4.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -163,7 +163,7 @@ const Skills = () => {
           <AWSModel />
         </Canvas>
       </div>
-      <div className='h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
+      <div className='animate-pulse h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 150, height: 150 }}>
           <ambientLight intensity={4.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -171,7 +171,7 @@ const Skills = () => {
           <UEModel />
         </Canvas>
       </div>
-      <div className='h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
+      <div className='animate-pulse h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 150, height: 150 }}>
           <ambientLight intensity={4.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -187,7 +187,7 @@ const Skills = () => {
 
       {/* FOR PHONES */}
       <div className="tablet grid grid-cols-4 gap-5 gap-y-5 md:gap-y-10 mb-6 w-4/5 justify-center items-center rounded-3xl border-white pt-10 pb-10 border">
-      <div className='h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
+      <div className='animate-pulse h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
           <ambientLight intensity={1.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -195,7 +195,7 @@ const Skills = () => {
           <CppModel />
         </Canvas>
       </div>
-      <div className='h-75 w-75 flex flex-row items-center justify-center md:w-0 md:h-0'>
+      <div className='animate-pulse h-75 w-75 flex flex-row items-center justify-center md:w-0 md:h-0'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
           <ambientLight intensity={1.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -203,7 +203,7 @@ const Skills = () => {
           <JSModel />
         </Canvas>
       </div>
-      <div className='h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
+      <div className='animate-pulse h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
           <ambientLight intensity={1.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -211,7 +211,7 @@ const Skills = () => {
           <PythonModel />
         </Canvas>
       </div>
-      <div className='h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
+      <div className='animate-pulse h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
           <ambientLight intensity={7.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -219,7 +219,7 @@ const Skills = () => {
           <ReactModel />
         </Canvas>
       </div>
-      <div className='h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
+      <div className='animate-pulse h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
         <Canvas camera={{ position: [14, 0, 0] }} style={{ width: 75, height: 75 }}>
           <ambientLight intensity={4.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -227,7 +227,7 @@ const Skills = () => {
           <MongoDBModel />
         </Canvas>
       </div>
-      <div className='h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
+      <div className='animate-pulse h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
           <ambientLight intensity={4.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -235,7 +235,7 @@ const Skills = () => {
           <SQLModel />
         </Canvas>
       </div>
-      <div className='h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
+      <div className='animate-pulse h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
           <ambientLight intensity={4.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -243,7 +243,7 @@ const Skills = () => {
           <PHPModel />
         </Canvas>
       </div>
-      <div className='h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
+      <div className='animate-pulse h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
           <ambientLight intensity={4.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -251,7 +251,7 @@ const Skills = () => {
           <NodeJSModel />
         </Canvas>
       </div>
-      <div className='h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
+      <div className='animate-pulse h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
           <ambientLight intensity={4.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -259,7 +259,7 @@ const Skills = () => {
           <TailWindModel />
         </Canvas>
       </div>
-      <div className='h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
+      <div className='animate-pulse h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
           <ambientLight intensity={4.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -267,7 +267,7 @@ const Skills = () => {
           <AWSModel />
         </Canvas>
       </div>
-      <div className='h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
+      <div className='animate-pulse h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
           <ambientLight intensity={4.5} />
           <directionalLight position={[0, 0, 5]} />
@@ -275,7 +275,7 @@ const Skills = () => {
           <UEModel />
         </Canvas>
       </div>
-      <div className='h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
+      <div className='animate-pulse h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
           <ambientLight intensity={4.5} />
           <directionalLight position={[0, 0, 5]} />

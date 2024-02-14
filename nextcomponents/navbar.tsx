@@ -49,6 +49,8 @@ const Navbar = () => {
   
     requestAnimationFrame(animation);
   };
+
+  
   
   return (
     <div className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#d4af37]/50 bg-[#03001417] backdrop-blur-md z-50 px-10">
@@ -72,17 +74,17 @@ const Navbar = () => {
         </a>
 
         <div className="w-[500px] h-full flex flex-row items-center justify-between md:mr-20">
-          <div className="flex items-center justify-between w-full h-auto border-none bg-[#0300145e] mr-[15px] px-[20px] py-[10px] rounded-full text-gray-400 gap-x-10">
-            <a onClick={scrollToAboutMe} className="cursor-pointer text-xs md:md">
+          <div className="flex items-center justify-between w-full h-auto border-none bg-[#0300145e] mr-[15px] px-[20px] py-[10px] rounded-full text-white font-bold gap-x-10">
+            <a onClick={scrollToAboutMe} className="animate-pulse cursor-pointer text-xs md:md">
               About me
             </a>
-            <a onClick={scrollToFootball} className="cursor-pointer text-xs md:md">
+            <a onClick={scrollToFootball} className="animate-pulse cursor-pointer text-xs md:md">
               Football
             </a>
-            <a onClick={scrollToSkills} className="cursor-pointer text-xs md:md">
+            <a onClick={scrollToSkills} className="animate-pulse cursor-pointer text-xs md:md">
               Skills
             </a>
-            <a onClick={scrollToProjects} className="cursor-pointer text-xs md:md">
+            <a onClick={scrollToProjects} className="animate-pulse cursor-pointer text-xs md:md">
               Projects
             </a>
           </div>
