@@ -3,6 +3,7 @@ import React from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { useLoader } from '@react-three/fiber';
+import "./skills.css"
 
 const CppModel = () => {
   const gltf = useLoader(GLTFLoader, '/cpp.glb');
@@ -80,7 +81,8 @@ const CameraOrbit = () => {
 
 const Skills = () => {
   return (
-    <div className="grid grid-cols-4 gap-5 gap-y-5 md:gap-y-10 mb-6 w-4/5 justify-center items-center rounded-3xl border-white pt-10 pb-10 border">
+    <>
+    <div className="desktop md:grid md:grid-cols-4 md:gap-5 md:gap-y-5 md:gap-y-10 md:mb-6 mdw-4/5 justify-center items-center rounded-3xl md:border-white md:pt-10 md:pb-10 md:border">
       <div className='h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 150, height: 150 }}>
           <ambientLight intensity={1.5} />
@@ -177,11 +179,14 @@ const Skills = () => {
           <LinuxModel />
         </Canvas>
       </div>
+      </div>
+
 
 
 
 
       {/* FOR PHONES */}
+      <div className="tablet grid grid-cols-4 gap-5 gap-y-5 md:gap-y-10 mb-6 w-4/5 justify-center items-center rounded-3xl border-white pt-10 pb-10 border">
       <div className='h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0'>
         <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
           <ambientLight intensity={1.5} />
@@ -278,7 +283,8 @@ const Skills = () => {
           <LinuxModel />
         </Canvas>
       </div>
-    </div>
+      </div>
+    </>
     
   );
 };
