@@ -51,7 +51,7 @@ const CyberSec = () => {
           muted
           autoPlay
           playsInline
-          preload="false"
+          preload="true"
           className="w-full h-auto"
           src="/encryption.webm/"
         />
