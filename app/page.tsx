@@ -1,6 +1,8 @@
 import Blackholeanimation from "@/nextcomponents/blackholeanimation"
 import SkillSection from "@/nextcomponents/skillssection";
 import CyberSec from "@/nextcomponents/cybersec";
+import Projects from "@/nextcomponents/Projects";
+
 export default function Home() {
   
   return (
@@ -9,6 +11,7 @@ export default function Home() {
         <Blackholeanimation />
         <SkillSection/>
         <CyberSec/>
+        <Projects/>
       </div>
     </main>
   );
