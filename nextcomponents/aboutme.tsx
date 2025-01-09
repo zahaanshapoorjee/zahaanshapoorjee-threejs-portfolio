@@ -87,14 +87,15 @@ const CameraLogger = () => {
 
   useFrame(() => {
     // Increment time slowly
-    time += speed;
+    // time += speed;
 
     // Oscillating motion on the y-axis and x-axis
-    camera.position.y += amplitude * Math.sin(time);
-    camera.position.x += amplitude * Math.cos(time);
+    // camera.position.y += amplitude * Math.sin(time);
+    // camera.position.x += amplitude * Math.cos(time);
 
     // Keep the camera facing the original direction
-    camera.lookAt(new Vector3(0, 0, 0));
+    // camera.lookAt(new Vector3(0, 0, 0));
+    
   });
 
   return null; // This component does not render anything
