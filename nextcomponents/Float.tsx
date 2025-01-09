@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 
-const Float = ({ children, floatSpeed = 2, floatHeight = 0.1 }) => {
+const Float = ({ children, floatSpeed = 2.5, floatHeight = 0.2 }) => {
   const groupRef = useRef();
 
   useFrame(({ clock }) => {
