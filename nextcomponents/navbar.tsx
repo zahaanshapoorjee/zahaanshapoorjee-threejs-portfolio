@@ -105,16 +105,24 @@ const Navbar = () => {
 
         {/* Desktop Social Icons */}
         <div className="hidden md:flex flex-row gap-5">
-          {Socials.map((social) => (
+        {Socials.map((social) => (
+          <a
+            href={social.link}
+            key={social.name}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cursor-pointer"
+          >
             <Image
               src={social.src}
               alt={social.name}
-              key={social.name}
               width={24}
               height={24}
+              className="hover:opacity-75 transition-opacity"
             />
-          ))}
-        </div>
+          </a>
+        ))}
+      </div>
 
         {/* Hamburger Menu (Mobile) */}
         <div className="z-50 flex items-center md:hidden">
@@ -166,16 +174,25 @@ const Navbar = () => {
           </a>
           {/* Mobile Social Icons */}
           <div className="flex flex-row gap-5 mt-4">
-            {Socials.map((social) => (
-              <Image
-                src={social.src}
-                alt={social.name}
-                key={social.name}
-                width={24}
-                height={24}
-              />
-            ))}
+  {Socials.map((social) => (
+    <a
+      href={social.link}
+      key={social.name}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="cursor-pointer"
+    >
+      <Image
+        src={social.src}
+        alt={social.name}
+        width={24}
+        height={24}
+        className="hover:opacity-75 transition-opacity"
+      />
+    </a>
+  ))}
           </div>
+
         </div>
       )}
     </div>
