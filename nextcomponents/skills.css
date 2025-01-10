@@ -1,7 +1,9 @@
 @media(max-width:768px)
 {
-    .laptop{
+    .desktop{
         display: none;
+        height: 0;
+        width: 0;
     }
 }
 
@@ -9,5 +11,7 @@
 {
     .tablet{
         display: none;
+        height: 0;
+        width: 0;
     }
 }

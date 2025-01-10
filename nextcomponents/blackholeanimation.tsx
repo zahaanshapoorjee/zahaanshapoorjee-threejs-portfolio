@@ -10,7 +10,7 @@ function Blackholeanimation() {
   preload='true'
   muted
   loop
-  className='rotate-180 md:absolute md:top-[-380px] left-0 z-[1] w-full h-full object-cover filtered-video'
+  className='w-0 h-0 rotate-180 md:absolute md:top-[-380px] left-0 z-[1] md:w-full md:h-full object-cover filtered-video'
 >
   <source src='/blackhole.webm' type='video/webm'></source>
 </video>

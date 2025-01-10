@@ -149,22 +149,22 @@ const CameraLogger = () => {
     <motion.div
   initial="hidden"
   animate="visible"
-  className="flex flex-col md:flex-row mt-20 items-center justify-center px-0 md:px-20 md:pr-0 w-full z-[20] h-full "
+  className="flex text-center flex-col md:flex-row mt-20 items-center justify-center px-0 md:px-20 md:pr-0 w-full z-[20] h-full "
 >
-      <div className='md:mb-20 md:h-full w-full flex flex-col gap-5 justify center m-auto mt-0 text-start px-20'>
+      <div className='md:mb-20 md:h-full w-full flex flex-col gap-5 justify center m-auto mt-0 text-center md:text-start px-20'>
         <motion.div className='Welcome-box py-[15px] px-[4px] border border-[#D4AF37] opacity-[0.9] align-center px-6'
         variants={slideTop}>
           <BoltIcon className='text-[#D4AF37] mr-[10px] h-5 w-5'/>
           <h1 className='text-white text-[13px]'>Athlete / Developer / Pianist</h1>
         </motion.div>
         <div  className='mt-20 md:flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto'>
-        <span className='text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-gold3 via-gold1 to-gold2 typewriter-text gold-gradient-text' data-type='["Zahaan", "Footballer", "Developer"]' data-period="3000"></span>
+        <span className='text-4xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-gold3 via-gold1 to-gold2 typewriter-text gold-gradient-text' data-type='["Zahaan", "Footballer", "Developer"]' data-period="3000"></span>
         </div>
         <motion.p
         variants={slideLeft(0.8)} className='text-lg md:text-lg text-white my-5 max-w-[600px]'>
           Hi! I'm Zahaan, a footballer, developer, and pianist. My interests include Cyber-Security, Piano, and Full-Stack Development.
         </motion.p>
-        <motion.a onClick={scrollToSkills} variants={slideLeft(1)} className='py-2 border border-[#D4AF37] opacity-[0.9]  text-center text-white cursor-pointer rounded-lg max-w-[200px]'>
+        <motion.a onClick={scrollToSkills} variants={slideLeft(1)} className='py-2 border border-[#D4AF37] opacity-[0.9]  text-center text-white cursor-pointer rounded-lg md:max-w-[200px]'>
             Check out my skills!
         </motion.a>
       </div>

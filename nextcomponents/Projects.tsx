@@ -4,13 +4,13 @@ import ProjectCard from "./ProjectCard";
 const Projects = () => {
   return (
     <div
-      className="flex flex-col items-center justify-center py-20 mx-10"
+      className="flex flex-col items-center justify-center py-5 md:py-20 mx-10"
       id="projects"
     >
-      <h1 className="text-[40px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold3 via-gold1 to-gold2 typewriter-text gold-gradient-text pb-5">
+      <h2 className="text-4xl md:text-[40px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold3 via-gold1 to-gold2 typewriter-text gold-gradient-text pb-5">
         My Work
-      </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 w-full px-10">
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 w-full md:px-10">
       <ProjectCard
           src="/playfanup.png"
           title="PlayFanup"

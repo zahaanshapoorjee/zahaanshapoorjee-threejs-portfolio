@@ -101,7 +101,7 @@ const Skills = () => {
   return (
     <>
       {/* DESKTOP */}
-      <div className="desktop md:grid md:grid-cols-4 md:gap-5 md:gap-y-5 md:gap-y-10 md:mb-6 sm:w-4/5 justify-center items-center rounded-3xl md:border-white md:pt-10 md:pb-10 md:border p-5 pt-40">
+      <div className="desktop w-full md:grid md:grid-cols-4 md:gap-5 md:gap-y-5 md:gap-y-10 md:mb-10 sm:w-full justify-center items-center rounded-3xl md:border-white md:pt-20 md:pb-20 md:border p-5 pt-40">
         
         {/* C++ */}
         <div className="h-0 w-0 md:h-full md:w-full flex flex-row items-center justify-center">
@@ -194,11 +194,11 @@ const Skills = () => {
       </div>
 
       {/* MOBILE/TABLET */}
-      <div className="tablet grid grid-cols-4 gap-5 gap-y-5 md:gap-y-10 mb-6 w-4/5 justify-center items-center rounded-3xl border-white pt-10 pb-10 border">
+      <div className="tablet py-8 grid grid-cols-4 gap-5 gap-y-5 mb-6 w-full justify-center items-center rounded-3xl border-white px-5 border">
         
         {/* C++ */}
         <div className="h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0">
-          <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
+          <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 100, height: 100 }}>
             <ambientLight intensity={1.5} />
             <directionalLight position={[0, 0, 5]} />
             <Float>
@@ -209,7 +209,7 @@ const Skills = () => {
 
         {/* JavaScript */}
         <div className="h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0">
-          <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
+          <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 100, height: 100 }}>
             <ambientLight intensity={1.5} />
             <directionalLight position={[0, 0, 5]} />
             <Float>
@@ -220,7 +220,7 @@ const Skills = () => {
 
         {/* Python */}
         <div className="h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0">
-          <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
+          <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 100, height: 100 }}>
             <ambientLight intensity={1.5} />
             <directionalLight position={[0, 0, 5]} />
             <Float>
@@ -231,7 +231,7 @@ const Skills = () => {
 
         {/* MongoDB */}
         <div className="h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0">
-          <Canvas camera={{ position: [14, 0, 0] }} style={{ width: 75, height: 75 }}>
+          <Canvas camera={{ position: [14, 0, 0] }} style={{ width: 100, height: 100 }}>
             <ambientLight intensity={4.5} />
             <directionalLight position={[0, 0, 5]} />
             <Float>
@@ -242,7 +242,7 @@ const Skills = () => {
 
         {/* SQL */}
         <div className="h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0">
-          <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
+          <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 100, height: 100 }}>
             <ambientLight intensity={4.5} />
             <directionalLight position={[0, 0, 5]} />
             <Float>
@@ -253,7 +253,7 @@ const Skills = () => {
 
         {/* NodeJS */}
         <div className="h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0">
-          <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
+          <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 100, height: 100 }}>
             <ambientLight intensity={4.5} />
             <directionalLight position={[0, 0, 5]} />
             <Float>
@@ -264,7 +264,7 @@ const Skills = () => {
 
         {/* AWS */}
         <div className="h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0">
-          <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
+          <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 100, height: 100 }}>
             <ambientLight intensity={4.5} />
             <directionalLight position={[0, 0, 5]} />
             <Float>
@@ -275,7 +275,7 @@ const Skills = () => {
 
         {/* Linux */}
         <div className="h-half w-half flex flex-row items-center justify-center md:w-0 md:h-0">
-          <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 75, height: 75 }}>
+          <Canvas camera={{ position: [4, 0, 0] }} style={{ width: 100, height: 100 }}>
             <ambientLight intensity={4.5} />
             <directionalLight position={[0, 0, 5]} />
             <Float>
