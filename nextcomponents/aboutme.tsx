@@ -27,7 +27,7 @@ function AboutMe() {
         this.toRotate = toRotate;
         this.el = el;
         this.loopNum = 0;
-        this.period = parseInt(periodAttr ?? '2000', 10); // Use '2000' if periodAttr is null
+        this.period = parseInt(periodAttr ?? '2000', 10); 
         this.txt = '';
         this.isDeleting = false;
         this.tick();
@@ -46,7 +46,7 @@ function AboutMe() {
         this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
     
         var that = this;
-        var delta = this.isDeleting ? 50 : 200; // Adjust the values for smoother experience
+        var delta = this.isDeleting ? 50 : 200; 
     
         if (this.isDeleting && this.txt === '') {
           this.isDeleting = false;
@@ -72,47 +72,14 @@ function AboutMe() {
       }
     }
 
-    // INJECT CSS
     var css = document.createElement("style");
     css.type = "text/css";
     css.innerHTML = ".typewriter-text > .wrap { border-right: 0.08em solid #fff}";
     document.body.appendChild(css);
   }, []);
 
-const CameraLogger = () => {
-  const { camera } = useThree();
-  const speed = 0.025; // Very slow speed
-  let time = 0;
-  const amplitude = 0.015; // Very minimal distance
-
-  useFrame(() => {
-    // Increment time slowly
-    // time += speed;
-
-    // Oscillating motion on the y-axis and x-axis
-    // camera.position.y += amplitude * Math.sin(time);
-    // camera.position.x += amplitude * Math.cos(time);
-
-    // Keep the camera facing the original direction
-    // camera.lookAt(new Vector3(0, 0, 0));
-    
-  });
-
-  return null; // This component does not render anything
-};
-
-  
-  
-
-  // const scrollToSkills = () => {
-  //   const skillsSection = document.getElementById('skills');
-  //   if (skillsSection) {
-  //     skillsSection.scrollIntoView({ behavior: 'smooth' });
-  //   }
-  // };
-
   const scrollToSkills = () => {
-    smoothScroll('skills', 2000); // Scrolls over 1000 milliseconds (1 second)
+    smoothScroll('skills', 2000); 
   };
   
 
@@ -174,7 +141,6 @@ const CameraLogger = () => {
               <Suspense fallback={null}>
                 <GoldenParticleModel />
                 <OrbitControls />
-                <CameraLogger/>
               </Suspense>
             </Canvas>
           </div>
