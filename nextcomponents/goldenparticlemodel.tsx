@@ -59,6 +59,7 @@ const Particles = () => {
         sizeAttenuation={true}
         transparent={true}
         blending={THREE.AdditiveBlending}
+        depthWrite={depthWrite}
       />
     </points>
   );
