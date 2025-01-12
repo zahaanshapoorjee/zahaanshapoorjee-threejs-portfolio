@@ -71,7 +71,7 @@ const GoldenParticleModel = () => {
     <>
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} color="#ffffff" intensity={1.5} />
-      <spotLight position={[-10, 15, 10]} angle={0.3} intensity={1.5} /> // Additional spotlight
+      <spotLight position={[-10, 15, 10]} angle={0.3} intensity={1.5} /> 
       <group position={[65, 25, -5]}>
         <Particles />
       </group>
