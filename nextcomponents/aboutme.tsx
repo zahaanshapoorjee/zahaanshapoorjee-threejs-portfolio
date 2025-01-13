@@ -12,6 +12,7 @@ import { OrbitControls } from '@react-three/drei';
 import { Vector3 } from 'three';
 import "./aboutme.css"
 function AboutMe() {
+  const isMobile = window.innerWidth < 768;
 
   const scrollToSkills = () => {
     smoothScroll('skills', 2000); 
@@ -69,13 +70,13 @@ function AboutMe() {
         </a>
       </div>
       <div className='w-full h-full mt-10 md:w-full h-full flex justify-center items-center rotate-180 aboutme '>
-        <div className="canvas-container">
+       {!isMobile && <div className="canvas-container">
           <Canvas id="aboutme" camera={{position: [-20, 0, -15]}}>
             <Suspense fallback={null}>
               <GoldenParticleModel />
               <OrbitControls />
             </Suspense>
-          </Canvas>
+          </Canvas>}
         </div>
       </div>
     </div>
