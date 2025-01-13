@@ -1,48 +1,52 @@
-"use client";
-import React, { useState, useRef, useMemo } from "react";
-import { Points, PointMaterial } from "@react-three/drei";
-import { Canvas, useFrame } from "@react-three/fiber";
-import * as random from "maath/random";
+"use client"
+
+import React, { useState, useRef, Suspense } from "react";
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import { Points, PointMaterial, Preload } from "@react-three/drei";
+// @ts-ignore
+import * as random from "maath/random/dist/maath-random.esm";
 
 const StarBackground = (props: any) => {
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const starCount = isMobile ? 250 : 1000; 
 
-  const sphere = useMemo(
-    () => random.inSphere(new Float32Array(starCount), { radius: 1.4 }),
-    [starCount]
+  const ref: any = useRef();
+  const [sphere] = useState(() =>
+    random.inSphere(new Float32Array(5000), { radius: 1.2 })
   );
 
-  const ref = useRef<any>();
   useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 10;
-    ref.current.rotation.y -= delta / 15;
-  });
+    ref.current.rotation.x -= delta/10;
+    ref.current.rotation.y -= delta/15;
+  })
 
   return (
-    <group rotation={[0, 0, Math.PI / 4]}>
-      <Points
+    <group rotation={[0,0, Math.PI / 4]}>
+        <Points
         ref={ref}
         positions={sphere}
         stride={3}
         frustumCulled
         {...props}
-      >
-        <PointMaterial
-          color="#ffffff"
-          size={0.002}
-        />
-      </Points>
+        >
+            <PointMaterial
+                transparent
+                color="$0xffffff"
+                size={0.002}
+                sizeAttenuation={true}
+                dethWrite={false}
+            />
+        </Points>
     </group>
-  );
+  )
 };
 
 const Space = () => (
-  <div className="w-full h-auto fixed inset-0 z-[20]">
-    <Canvas camera={{ position: [0, 0, 1.5] }}>
-      <StarBackground />
-    </Canvas>
-  </div>
-);
+    <div className="w-full h-auto fixed inset-0 z-[20]">
+        <Canvas camera={{position: [0, 0, 0]}}>
+        <Suspense fallback={null}>
+            <StarBackground />
+        </Suspense>
+        </Canvas>
+    </div>
+)
 
 export default Space;

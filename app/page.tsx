@@ -11,7 +11,7 @@ export default function Home() {
         <Blackholeanimation />
         <SkillSection/>
         <CyberSec/>
-        <Projects/>
+        {/* <Projects/> */}
       </div>
     </main>
   );
