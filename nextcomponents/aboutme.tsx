@@ -52,14 +52,12 @@ function AboutMe() {
           <h1 className='text-white text-[13px]'>Athlete / Developer / Pianist</h1>
         </div>
         <div className='mt-20 md:flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto'>
-          <Typewriter className='text-4xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-gold3 via-gold1 to-gold2 typewriter-text gold-gradient-text'
+          <Typewriter 
             options={{
-              strings: ['Zahaan', 'Footballer', 'Developer'], // Array of words to type
+              strings: ['Zahaan', 'Footballer', 'Developer'], 
               autoStart: true,
               loop: true,
-              typingDelay: 100,  // Adjust typing speed
-              deleteSpeed: 50,   // Adjust delete speed
-              cursorColor: "#D4AF37" // Cursor color
+              deleteSpeed: 50,   
             }}
           />
         </div>
