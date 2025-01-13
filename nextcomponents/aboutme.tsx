@@ -11,6 +11,7 @@ import { OrbitControls } from '@react-three/drei';
 import { Vector3 } from 'three';
 
 function AboutMe() {
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
   useEffect(() => {
     class TxtType {
       toRotate: string[];
@@ -126,14 +127,14 @@ function AboutMe() {
         </a>
       </div>
       <div className='w-full h-full mt-10 md:w-full h-full flex justify-center items-center rotate-180 aboutme '>
-        <div className="canvas-container">
-          <Canvas id="aboutme" camera={{position: [-20, 0, -15]}}>
-            <Suspense fallback={null}>
-              <GoldenParticleModel />
-              <OrbitControls />
-            </Suspense>
-          </Canvas>
-        </div>
+      {!isMobile && <div className="canvas-container">
+        <Canvas id="aboutme" camera={{position: [-20, 0, -15]}}>
+          <Suspense fallback={null}>
+            <GoldenParticleModel />
+            <OrbitControls />
+          </Suspense>
+        </Canvas>
+      </div>}
       </div>
     </div>
   );
