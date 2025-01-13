@@ -59,7 +59,7 @@ const Particles = () => {
         sizeAttenuation={true}
         transparent={true}
         blending={THREE.AdditiveBlending}
-        depthWrite={depthWrite}
+        // depthWrite={depthWrite}
       />
     </points>
   );
@@ -70,7 +70,7 @@ const GoldenParticleModel = () => {
 
   return (
     <>
-      <ambientLight intensity={isMobile ? 0.3 : 0.5} /> {/* Lower intensity for mobile */}
+      <ambientLight intensity={isMobile ? 0.3 : 0.5} />
       <pointLight position={[10, 10, 10]} color="#ffffff" intensity={isMobile ? 1 : 1.5} />
       <spotLight
         position={[-10, 15, 10]}

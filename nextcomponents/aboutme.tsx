@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { slideLeft, slideRight, slideTop } from '@/animations/anims';
 import { BoltIcon } from '@heroicons/react/24/solid';
 import Image from "next/image";
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
@@ -11,7 +9,6 @@ import { Suspense } from "react";
 import GoldenParticleModel from './goldenparticlemodel';
 import { OrbitControls } from '@react-three/drei';
 import { Vector3 } from 'three';
-
 
 function AboutMe() {
   useEffect(() => {
@@ -110,44 +107,36 @@ function AboutMe() {
     requestAnimationFrame(animation);
   };
   
-  
-  
+
   return (
-    <motion.div
-  initial="hidden"
-  animate="visible"
-  className="flex text-center flex-col md:flex-row mt-20 items-center justify-center px-0 md:px-20 md:pr-0 w-full z-[20] h-full"
->
+    <div className="flex text-center flex-col md:flex-row mt-20 items-center justify-center px-0 md:px-20 md:pr-0 w-full z-[20] h-full">
       <div className='md:mb-20 md:h-full w-full flex flex-col gap-5 justify center m-auto mt-0 text-center md:text-start px-20'>
-        <motion.div className='Welcome-box py-[15px] px-[4px] border border-[#D4AF37] opacity-[0.9] align-center px-6'
-        variants={slideTop}>
+        <div className='Welcome-box py-[15px] px-[4px] border border-[#D4AF37] opacity-[0.9] align-center px-6'>
           <BoltIcon className='text-[#D4AF37] mr-[10px] h-5 w-5'/>
           <h1 className='text-white text-[13px]'>Athlete / Developer / Pianist</h1>
-        </motion.div>
-        <div  className='mt-20 md:flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto'>
-        <span className='text-4xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-gold3 via-gold1 to-gold2 typewriter-text gold-gradient-text' data-type='["Zahaan", "Footballer", "Developer"]' data-period="3000"></span>
         </div>
-        <motion.p
-        variants={slideLeft(0.8)} className='text-lg md:text-lg text-white my-5 max-w-[600px]'>
+        <div className='mt-20 md:flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto'>
+          <span className='text-4xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-gold3 via-gold1 to-gold2 typewriter-text gold-gradient-text' data-type='["Zahaan", "Footballer", "Developer"]' data-period="3000"></span>
+        </div>
+        <p className='text-lg md:text-lg text-white my-5 max-w-[600px]'>
           Hi! I'm Zahaan, a footballer, developer, and pianist. My interests include Cyber-Security, Piano, and Full-Stack Development.
-        </motion.p>
-        <motion.a onClick={scrollToSkills} variants={slideLeft(1)} className='py-2 border border-[#D4AF37] opacity-[0.9]  text-center text-white cursor-pointer rounded-lg md:max-w-[200px]'>
-            Check out my skills!
-        </motion.a>
+        </p>
+        <a onClick={scrollToSkills} className='py-2 border border-[#D4AF37] opacity-[0.9] text-center text-white cursor-pointer rounded-lg md:max-w-[200px]'>
+          Check out my skills!
+        </a>
       </div>
-        <div className='w-full h-full mt-10 md:w-full h-full flex justify-center items-center rotate-180 aboutme '>
-          <div className="canvas-container">
-            <Canvas id="aboutme" camera={{position: [-20, 0, -15]}}>
-              <Suspense fallback={null}>
-                <GoldenParticleModel />
-                <OrbitControls />
-              </Suspense>
-            </Canvas>
-          </div>
+      <div className='w-full h-full mt-10 md:w-full h-full flex justify-center items-center rotate-180 aboutme '>
+        <div className="canvas-container">
+          <Canvas id="aboutme" camera={{position: [-20, 0, -15]}}>
+            <Suspense fallback={null}>
+              <GoldenParticleModel />
+              <OrbitControls />
+            </Suspense>
+          </Canvas>
         </div>
-        {/* </motion.div> */}
-    </motion.div>
-  )
+      </div>
+    </div>
+  );
 }
 
 export default AboutMe;

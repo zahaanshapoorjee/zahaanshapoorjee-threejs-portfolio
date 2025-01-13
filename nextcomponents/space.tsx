@@ -6,10 +6,10 @@ import * as random from "maath/random";
 
 const StarBackground = (props: any) => {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const starCount = isMobile ? 500 : 1000; 
+  const starCount = isMobile ? 250 : 1000; 
 
   const sphere = useMemo(
-    () => random.inSphere(new Float32Array(starCount), { radius: 1.2 }),
+    () => random.inSphere(new Float32Array(starCount), { radius: 1.4 }),
     [starCount]
   );
 
@@ -29,11 +29,8 @@ const StarBackground = (props: any) => {
         {...props}
       >
         <PointMaterial
-          transparent
           color="#ffffff"
           size={0.002}
-          sizeAttenuation={true}
-          depthWrite={false}
         />
       </Points>
     </group>
