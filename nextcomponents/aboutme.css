@@ -1,0 +1,32 @@
+/* Define the colors for the gold gradient */
+:root {
+    --gold1: #f9f295;
+    --gold2: #e0aa3e;
+    --gold3: #b88a44;
+  }
+  
+  .Typewriter__wrapper {
+    font-size: 2.25rem; /* Equivalent to text-4xl */
+    text-transform: none; /* Ensures text remains as it is without transformation */
+  
+    /* Apply gradient text */
+    background: linear-gradient(90deg, var(--gold3), var(--gold1), var(--gold2));
+    -webkit-background-clip: text; /* Required for gradient text */
+    background-clip: text; /* Standard property for gradient text */
+    color: transparent; /* Make the text color transparent so the gradient shows */
+    
+    /* Adjust for larger screens */
+    font-size: 3.75rem; /* Equivalent to md:text-6xl on larger screens */
+  }
+  
+  .Typewriter__wrapper.typewriter-text {
+    /* You can add any specific styles for the typewriter effect if needed */
+  }
+  
+  .gold-gradient-text {
+    background: linear-gradient(90deg, var(--gold3), var(--gold1), var(--gold2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  

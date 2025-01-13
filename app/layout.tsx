@@ -24,7 +24,7 @@ export default function RootLayout({
       <meta name="viewport" content="width=device-width,initial-scale=1"/>
       </Head>
       <body className={`${inter.className} bg-[#000000] overflow-y-scroll overflow-x-hidden `}>
-        {/* <Space/> */}
+        <Space/>
         <Navbar/>
         {children}</body>
     </html>
