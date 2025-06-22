@@ -10,7 +10,7 @@ export default function Home() {
       <div className="flex flex-col gap-15">
         <Blackholeanimation />
         <SkillSection/>
-        <CyberSec/>
+        {/* <CyberSec/> */}
         <Projects/>
       </div>
     </main>
