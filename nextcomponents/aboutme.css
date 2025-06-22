@@ -14,9 +14,13 @@
     -webkit-background-clip: text; /* Required for gradient text */
     background-clip: text; /* Standard property for gradient text */
     color: transparent; /* Make the text color transparent so the gradient shows */
-    
-    /* Adjust for larger screens */
-    font-size: 3.75rem; /* Equivalent to md:text-6xl on larger screens */
+  }
+  
+  /* Adjust for larger screens */
+  @media (min-width: 768px) {
+    .Typewriter__wrapper {
+      font-size: 3.75rem; /* Equivalent to md:text-6xl on larger screens */
+    }
   }
   
   .Typewriter__wrapper.typewriter-text {
@@ -29,4 +33,3 @@
     background-clip: text;
     color: transparent;
   }
-  
