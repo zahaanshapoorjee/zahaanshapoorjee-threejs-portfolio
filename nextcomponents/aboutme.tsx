@@ -77,7 +77,7 @@ function AboutMe() {
           />
         </div>
         <p className='text-lg md:text-lg text-white my-5 max-w-[600px]'>
-          Hi! I'm Zahaan, a footballer, developer, and pianist. My interests include Cyber-Security, Piano, and Full-Stack Development.
+          Hi! I'm Zahaan, a footballer, developer, and pianist. My interests include Software Development, Piano, and Cyber-Security.
         </p>
         <a onClick={scrollToSkills} className='py-2 border border-[#D4AF37] opacity-[0.9] text-center text-white cursor-pointer rounded-lg md:max-w-[200px]'>
           Check out my skills!
