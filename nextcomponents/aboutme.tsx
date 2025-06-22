@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BoltIcon } from '@heroicons/react/24/solid';
 import Typewriter from 'typewriter-effect'; 
 import Image from "next/image";
@@ -12,7 +12,21 @@ import { OrbitControls } from '@react-three/drei';
 import { Vector3 } from 'three';
 import "./aboutme.css"
 function AboutMe() {
-  const isMobile = window.innerWidth < 768;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const scrollToSkills = () => {
     smoothScroll('skills', 2000); 
