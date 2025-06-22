@@ -76,8 +76,7 @@ function AboutMe() {
               <GoldenParticleModel />
               <OrbitControls />
             </Suspense>
-          </Canvas>}
-        </div>
+          </Canvas></div>}
       </div>
     </div>
   );
